@@ -1,1 +1,6 @@
-site_name: My Docs
+# mkdocs.yml 核心配置示例（其他配置保留，只加这两行）
+site_name: My Blog  # 你的博客名称（原有配置保留）
+site_url: https://LemonTea-0010.github.io/  # 新增：你的 GitHub Pages 地址
+base_url: /  # 新增：根路径，无仓库名后缀时填 /
+theme:
+  name: material  # 原有配置保留

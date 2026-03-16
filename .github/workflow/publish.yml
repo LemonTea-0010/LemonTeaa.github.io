@@ -1,0 +1,23 @@
+name: Publish My Site # 工作流的名字
+
+on: # 触发条件
+  push: # 当有代码推送到仓库时
+    branches: [ main ] # 并且是推送到 main 分支
+
+jobs: # 要执行的任务
+  deploy: # 任务名：部署
+    runs-on: ubuntu-latest # 在一个最新的 Ubuntu 系统环境中运行
+    steps: # 任务步骤
+      - name: Checkout Code # 步骤1：拉取代码
+        uses: actions/checkout@v3
+
+      - name: Setup Python # 步骤2：安装 Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies # 步骤3：安装 MkDocs 和主题
+        run: pip install mkdocs-material
+
+      - name: Build and Deploy # 步骤4：构建网站并部署到 GitHub Pages
+        run: mkdocs gh-deploy --force
